@@ -17,13 +17,14 @@ const game = {
       { name: "rare candy", quantity: 99 },
     ],
   }
- // console.dir(pokemon, {maxArayLength: null});
+//console.log(`start : ${game}`);
+ //console.dir(pokemon, {maxArayLength: null});
   
- //Exercise 1
- //console.log(pokemon[58].name);
-//Exercise 2
- //console.log(game);
+//Exercise 1
+//console.log(`Exercise 1: ${pokemon[58].name}`);
 
+//Exercise 2
+//console.log(`Exercise 2: ${game}`);
 
  /*
 Exercise 3
@@ -35,7 +36,7 @@ Solve Exercise 3 here:
 */
 
 game.difficulty= ["Easy", "Med", "Hard"];
-//console.log(game);
+//console.log(`Exercise 3: ${game}`);
 
 
 /*
@@ -48,12 +49,12 @@ Solve Exercise 4 here:
 */
 
 for(let i=0; i<pokemon.length; i++){
-    if( pokemon[i].starter=== true){
+    if( pokemon[i].starter== true){
         game.party.push(pokemon[i]);
       
     }     
 }
-//console.log(game.party);
+//console.log(`Exercise 4: ${game.party}`);
 
 
 /*
@@ -66,14 +67,14 @@ Solve Exercise 5 here:
 */
 const threePokemon =[];
 for(let i=0; i<pokemon.length; i++){
-    if( pokemon[i].hp > 100 && pokemon[i].type==="normal" ){
+    if( pokemon[i].hp > 100 && pokemon[i].type=="normal" ){
         threePokemon.push(pokemon[i]);
      
        
     }  
 }
 game.party.push(threePokemon.slice(0,3));
-//console.log(game.party);
+//console.log(`Exercise 5: ${game.party}`);
 
 /*
 Exercise 6
@@ -91,7 +92,8 @@ game.gyms.forEach(gym => {
         }}
     
 });
-//console.log(game.gyms);
+//console.log(`Exercise 6: ${game.gyms}`);
+
 
 
 /*
@@ -110,5 +112,36 @@ More Hints: The existing starter Pokemon will be *replaced* in your party with t
 
 Solve Exercise 7 here:
 */
+//cconsole.log(game.party);
+game.party.splice(0,4,pokemon[1], pokemon[4], pokemon[7], pokemon[25]);
+//console.log(game.party);
 
+/*
+Exercise 8
+1. Print the name of each Pokémon in your party.
+2. Consider using a loop or an array method to access each Pokémon's name.
+
+Solve Exercise 8 here:
+*/
+
+function printPokemonNames(pokemonArray) {
+  pokemonArray.forEach((pokemon) => {
+    if (Array.isArray(pokemon)) {
+      printPokemonNames(pokemon);
+    } else {
+      console.log(pokemon.name);
+    }
+  });
+}
+
+printPokemonNames(game.party);
+
+/*
+Exercise 9
+1. Can you print out all the starter Pokémon from the `pokemon` array?
+2. Think about how you can identify a starter Pokémon and then log their names.
+
+
+Solve Exercise 9 here:
+*/
 
